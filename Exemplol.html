@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Novo Parágrafo</title>
+	<style>
+		.classelegal {
+			border: solid black 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Exercicio 1 ao 4</h1>
+
+	<p id="firstP"> Digite um valor para x:</p>
+	<input id="X" type="number" value="">
+
+	<p id="firstP2">Digite um valor para y:</p>
+	<input id="Y" type="number" value="">
+
+	<p id="firstP3"> Valor da Potencia </p>
+	<button type="button" onclick="valordapotencia(X.value,Y.value)">Calcular Potencia</button>
+	<span id="resultP3"></span>
+
+	<p id="firstP4"> Maior Valor </p>
+	<button type="button" onclick="Max_dois(X.value,Y.value)">Mostrar maior numero</button>
+
+	<h1>Exercicio 5</h1>
+
+	<!-- Numero 5 -->
+	<!-- 1.5-->
+	<p id="firstP5"> 1. Adicionando Atributo nome </p>
+	<button type="button" onclick="adicionarNome()">Adicionar</button>
+	<span id="resultP5"></span>
+	<!-- 2.5 -->
+	<p id="firstP6"> 2. Adicionando Atributo Sobrenome </p>
+	<button type="button" onclick=" adicionarSobrenome()">Adicionar</button>
+	<span id="resultP6"></span>
+
+	<!-- Mostrar o valor total do objeto -->
+	<p id="firstP7"> Extra - Mostrar Nome Completo </p>
+	<button type="button" onclick="  mostrarAtributosdoObjeto()">Mostrar</button>
+	<span id="resultP7"></span>
+	<!-- 3.5-->
+	<p id="firstP8"> 3. Trocar o Nome :</p>
+	<button type="button" onclick="changeName()">Trocar Nome</button>
+	<span id="resultP8"></span>
+	<!-- 4.5-->
+	<p id="firstP9"> 4. Deletar o Atributo Nome :</p>
+	<button type="button" onclick="deletarAtributo()">DELETAR</button>
+	<span id="resultP9"></span>
+	<!-- 5.5 -->
+	<p id="firstP10"> 5. Verificar se o Atributo Time existe :</p>
+	<button type="button" onclick="verificarAtributo()">Verificar</button>
+	<span id="resultP10"></span>
+	<!-- Numero 6 -->
+	<h1>Exercicio 6</h1>
+	<p id="firstP11"> Somar Salario</p>
+	<button type="button" onclick="somarSalarios()">Somar</button>
+	<span id="resultP11"></span>
+	<!-- 7 -->
+	<h1>Exercicio 7</h1>
+	<p id="paragrafo">Exemplo de aula <span>teste</span> Exemplo de aula <span>Lorem <strong>negrito<strong></span>
+		Exemplo de aula</p>
+	<ul>
+		<li>Item 1</li>
+		<li>Item 2</li>
+		<li id="item">Item 3</li>
+		<li>Item 4</li>
+		<li>Item 5</li>
+		<li>Item 6</li>
+		<li>Item 7</li>
+		<li>Item 8</li>
+	</ul>
+</body>
+<script>
+	window.onload = function () {
+		console.log(document.getElementById("paragrafo").innerText);
+		console.log(document.querySelector("#paragrafo span").innerText);
+		console.log(document.querySelector("#paragrafo span:nth-child(2)").innerText);
+		document.querySelector("#item").innerHTML = "9";
+		exibirInnerHTML();
+
+	}
+	function min_um(a, b) {
+		return (a <= b) ? a : b
+	}
+
+	function min_dois(a, b) {
+		let result = null
+		if (a <= b) {
+			result = a
+		}
+		else {
+			result = b
+		}
+		return result;
+	}
+	function valordapotencia(x, y) {
+		console.log(Math.pow(x, y));
+		return alert(Math.pow(x, y));
+	}
+	function Max_dois(x, y) {
+		let result = null
+		if (x >= y) {
+			result = x
+		}
+		else {
+			result = y
+		}
+
+		console.log(result);
+		return alert(result);
+
+	}
+	Aluno = {};
+
+	function adicionarNome() {
+		Aluno.Nome = "Otávio";
+		console.log(Aluno.Nome);
+		return alert(Aluno.Nome);
+	}
+
+	function adicionarSobrenome() {
+		Aluno.Sobrenome = "Reis Viana"
+		console.log(Aluno.Sobrenome);
+		return alert(Aluno.Sobrenome);
+	}
+	function mostrarAtributosdoObjeto() {
+		console.log(Aluno.Nome + " " + Aluno.Sobrenome);
+		return alert(Aluno.Nome + " " + Aluno.Sobrenome);
+	}
+
+	function changeName() {
+		Aluno.Nome = "Goku";
+		Aluno.Sobrenome = "Kakaroto";
+		console.log(Aluno.Nome + " " + Aluno.Sobrenome);
+		return alert(Aluno.Nome + " " + Aluno.Sobrenome);
+	}
+	function deletarAtributo() {
+		delete Aluno.Nome;
+		if (Aluno.Nome) {
+			console.log(Aluno.Nome);
+			return alert(Aluno.Nome);
+		}
+		else {
+			alert("Atributo Aluno.Nome Deletado!!!");
+		}
+	}
+
+
+	function verificarAtributo() {
+
+		if (Aluno.Time) {
+			console.log(Aluno.Time);
+			return alert("Possui");
+		}
+		else {
+			return alert("Nao Possui");
+		}
+
+	}
+	let salarios = {
+		Neymar: 100,
+		Ronaldinho: 160,
+		Ronaldo: 130
+	}
+	function somarSalarios() {
+		let salario = salarios.Neymar + salarios.Ronaldinho + salarios.Ronaldo;
+		console.log(salario);
+		return alert(salario);
+	}
+	let result = min_um(10, 20);
+	alert(result);
+</script>
+
+</html>
